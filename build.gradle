@@ -1,0 +1,23 @@
+plugins {
+    id 'java'
+}
+
+group 'engtelecom.poo'
+version '1.0'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+
+    // Para fazer testes parametrizados
+    // https://junit.org/junit5/docs/current/user-guide/#writing-tests-parameterized-tests
+    testImplementation 'org.junit.jupiter:junit-jupiter-params:5.7.0'
+}
+
+test {
+    useJUnitPlatform()
+}
