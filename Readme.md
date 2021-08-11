@@ -10,3 +10,47 @@ A classe [Triangulo](src/main/java/poo/formas/Triangulo.java) permite criar obje
 
 
 A classe [TrianguloTests](src/test/java/poo/TrianguloTests.java) possui uma implementação de todos os testes de unidade para garantir que a regra apresentada acima seja respeitada. Nessa classe é apresentado também um exemplo de como escrever testes [parametrizados](https://junit.org/junit5/docs/current/user-guide/#writing-tests-parameterized-tests-sources), algo que facilita quando se deseja testar vários valores. No caso, foi necessário incluir a dependência para o pacote `org.junit.jupiter:junit-jupiter-params:5.7.0` no arquivo [build.gradle](build.gradle).
+
+## Como criar um Jar executável com o gradle
+
+Edite o arquivo [build.gradle](build.gradle) e inclua o seguinte bloco.
+
+```groovy
+jar {
+    manifest {
+        // Classe principal da aplicação
+        attributes "Main-Class": "poo.Principal"
+    }
+}
+```
+
+Por fim, compile o projeto (sem executar os testes de unidade) com o comando `./gradlew build -x test` e execute a aplicação com a linha abaixo:
+
+```bash
+java -jar build/libs/teste-de-unidade-junit5-1.0.jar
+```
+
+## Executando os testes de unidade
+
+Execute a tarefa `./gradlew test` e um relatório em HTML será colocado no subdiretório `build/reports/tests/test`. Se algum teste não passar, então o gradle lançará um aviso após a execução da tarefa. Por exemplo:
+
+```bash
+> Task :test FAILED
+
+...
+
+TrianguloTests > ladosComDimensaoZero() FAILED
+    org.opentest4j.AssertionFailedError at TrianguloTests.java:23
+
+14 tests completed, 7 failed
+
+FAILURE: Build failed with an exception.
+```
+
+## Para atualizar a versão do gradle
+
+Veja documentação oficial que está disponível em https://docs.gradle.org/current/userguide/upgrading_version_7.html
+
+```bash
+gradle wrapper --gradle-version 7.1.1
+```

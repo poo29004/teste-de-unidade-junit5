@@ -9,6 +9,14 @@ repositories {
     mavenCentral()
 }
 
+// Para gerar um JAR executável
+jar {
+    manifest {
+        // Classe principal da aplicação
+        attributes "Main-Class": "poo.Principal"
+    }
+}
+
 dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
