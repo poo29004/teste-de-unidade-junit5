@@ -19,8 +19,9 @@ public class TrianguloTests {
      */
     @Test
     public void ladosComDimensaoZero(){
+        // TODO verificar se os valores apresentados nos testes abaixo estão corretos
         Triangulo t = new Triangulo(0,3,2);
-        assertEquals("(4,3,2)", t.toString(), "ladoA = 0");
+        assertEquals("(0,3,2)", t.toString(), "ladoA = 0");
 
         t = new Triangulo(4,0,2);
         assertEquals("(4,3,2)", t.toString(), "ladoB = 0");
@@ -46,6 +47,7 @@ public class TrianguloTests {
     aquilo que foi feito no método  {@link #ladosComDimensaoZero()}.
      */
     static Stream<Arguments> ladosQueFormamTriangulo(){
+        // TODO verificar se os valores abaixo realmente formam um triângulo
         return Stream.of(
                 Arguments.arguments("(1,1,1)", 1, 1, 1),
                 Arguments.arguments("(2,5,6)", 2, 5, 6),
@@ -73,6 +75,7 @@ public class TrianguloTests {
         );
     }
 
+    // TODO corrigir. Se inspire no teste 'ladosQueFormamUmTriangulo'
     @ParameterizedTest
     @MethodSource("parametrosComLadosQueNaoFormamTriangulo")
     public void ladosQueNaoFormamTriangulo(int ladoA, int ladoB, int ladoC){

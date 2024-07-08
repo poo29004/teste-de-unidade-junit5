@@ -2,7 +2,7 @@ package poo;
 
 import java.util.Random;
 
-public class Principal {
+public class App {
 
     public static void main(String[] args) {
         System.out.println("Pequeno exemplo com testes de unidade. Veja o conteúdo do diretório test\n\n");
